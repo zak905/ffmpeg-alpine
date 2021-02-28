@@ -1,4 +1,4 @@
-FROM golang:1.13-alpine3.10
+FROM golang:1.14.5-alpine3.12
 
 LABEL maintainer="Denis Makogon. mail: lildee1991@gmail.com"
 
@@ -60,6 +60,7 @@ ENV BUILD_DEPS="fdk-aac-dev \
 RUN apk update && \
     apk add --no-cache apk-tools && \
     echo http://nl.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories && \
+    echo http://dl-cdn.alpinelinux.org/alpine/v3.10/main >> /etc/apk/repositories && \
     apk update && \
     apk add --no-cache --virtual .runtime-deps ${RUNTIME_DEPS} && \
     apk add --no-cache ${FFMPEG_CORE} && \
